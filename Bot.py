@@ -9,29 +9,10 @@ async def on_ready():
 
 @bot.slash_command(name = "hello", description = "Say hello to the bot")
 async def hi(ctx):
-    await ctx.send("Hey!")
+    await ctx.send(f"Hey! {ctx.user.mention}")
 
 
 
-@bot.command()
-async def welcome_embed(ctx):
-    embed = discord.Embed(
-        title="Welcome!",
-        description="Welcome to The Server! Here is a List of channels you should read up on!",
-        color=discord.Colour.blurple(), # Pycord provides a class with default colors you can choose from
-    )
-    embed.add_field(name="Gen Chat!", value="**#General**")
-
-    embed.add_field(name="Rules!", value="#Rules", inline=True)
-    embed.add_field(name="Infomation!", value="#Info", inline=True)
-    embed.add_field(name="Announced Something?", value="#Announcements", inline=True)
- 
-    embed.set_footer(text="by wuid") # footers can have icons too
-    embed.set_author(name="by @.wuid", icon_url="https://pfps.gg/assets/pfps/1268-girl-pfp-1.png")
-    embed.set_thumbnail(url="https://pfps.gg/assets/pfps/1268-girl-pfp-1.png")
-    embed.set_image(url="https://pfps.gg/assets/banners/3332-90s-clouds.png")
- 
-    await ctx.respond("For Newbies!", embed=embed) # Send the embed with some text
 
 
 @bot.command(description="Sends the bot's latency.") # this decorator makes a slash command
@@ -56,7 +37,7 @@ class MyView(discord.ui.View): # Create a class called MyView that subclasses di
     
     @discord.ui.button(label="Support Server Link", row=1, style=discord.ButtonStyle.red)
     async def second_button_callback(self, button, interaction):
-        await interaction.response.send_message("https://dsc.gg/mcarchive")
+        await interaction.response.send_message("https://dsc.gg/syxsupport")
 
 @bot.slash_command() # Create a slash command
 async def bothelp(ctx):
@@ -72,7 +53,7 @@ async def info(ctx):
     embed.add_field(name="Fully Coded And Made By", value="**.wuid**")
 
     embed.add_field(name="Using ", value="Py-cord", inline=True)
-    embed.add_field(name="and ", value="Wavelink", inline=True)
+
     embed.add_field(name="do /bothelp", value="For More!", inline=True)
  
     embed.set_footer(text="Info!") # footers can have icons too
